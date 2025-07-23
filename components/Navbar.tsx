@@ -67,9 +67,11 @@ export default function Navbar() {
 
         {/* User section */}
         <div className="hidden md:flex items-center gap-3">
-  <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 font-semibold shadow-sm border border-blue-300 truncate max-w-[120px]">
-    {player.pseudo}
-  </span>
+  {player && (
+    <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 font-semibold shadow-sm border border-blue-300 truncate max-w-[120px]">
+      {player.pseudo}
+    </span>
+  )}
   <Link
     href="/dashboard"
     className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-1 text-sm font-semibold shadow"
@@ -85,7 +87,6 @@ export default function Navbar() {
     Déconnexion
   </button>
 </div>
-
 
         {/* Burger menu mobile */}
         <button
