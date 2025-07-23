@@ -25,8 +25,8 @@ export default function Navbar() {
           <Image
             src="/aystone.png"
             alt="Logo Aystone"
-            width={34}
-            height={34}
+            width={64}
+            height={64}
             priority
           />
           <span className="text-red-600 relative font-extrabold flex items-center gap-0.5">
