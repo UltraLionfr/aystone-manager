@@ -96,5 +96,3 @@ Pour toute question ou suggestion :
 ---
 
 *Ce projet n'est pas affilié à Mojang/Microsoft.*
-
-```
