@@ -1,13 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-// PATCH (éditer un projet)
 export async function PATCH(
-  req: NextRequest,
-  context: { params: { id: string } }
+  req: Request,
+  context: any
 ) {
-  const params = await context.params;
+  const { params } = context;
   const cookiesList = await cookies();
   const playerId = cookiesList.get("minecraft_player_id")?.value;
   if (!playerId) return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
@@ -17,7 +16,6 @@ export async function PATCH(
   if (!proj || proj.playerId !== playerId)
     return NextResponse.json({ error: "Non autorisé" }, { status: 403 });
 
-  // Prépare l'objet de mise à jour
   const { coordsX, coordsY, coordsZ, tags, description, etat, projet, monde } = data;
   const updateData: any = {};
   if (coordsX !== undefined) updateData.coordsX = coordsX;
@@ -41,12 +39,11 @@ export async function PATCH(
   }
 }
 
-// DELETE (supprimer un projet)
 export async function DELETE(
-  req: NextRequest,
-  context: { params: { id: string } }
+  req: Request,
+  context: any
 ) {
-  const params = await context.params;
+  const { params } = context;
   const cookiesList = await cookies();
   const playerId = cookiesList.get("minecraft_player_id")?.value;
   if (!playerId) return NextResponse.json({ error: "Non authentifié" }, { status: 401 });

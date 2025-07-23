@@ -2,9 +2,10 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 type Player = { id: string; pseudo: string } | null;
+
 const PlayerContext = createContext<{
   player: Player | undefined;
-  setPlayer: React.Dispatch<React.SetStateAction<Player>>;
+  setPlayer: React.Dispatch<React.SetStateAction<Player | undefined>>;
   logout: () => void;
 }>({
   player: undefined,
@@ -17,7 +18,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     fetch("/api/me")
-      .then((r) => r.ok ? r.json() : null)
+      .then((r) => (r.ok ? r.json() : null))
       .then((data) => setPlayer(data?.pseudo ? data : null))
       .catch(() => setPlayer(null));
   }, []);
