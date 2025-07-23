@@ -12,11 +12,11 @@ export default function Navbar() {
   const { player, logout } = usePlayer();
   const [open, setOpen] = useState(false);
 
-  const iconCls = "w-3.5 h-3.5 inline-block mr-1.5";
+  const iconCls = "w-4 h-4 inline-block mr-1.5"; // +0.5 rem par rapport à v1
 
   return (
     <header className="w-full sticky top-0 z-50 bg-[#101426]/95 backdrop-blur-md shadow-md">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-4">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-3.5">
         {/* Logo & Brand */}
         <Link
           href="/"
@@ -25,8 +25,8 @@ export default function Navbar() {
           <Image
             src="/aystone.png"
             alt="Logo Aystone"
-            width={32}
-            height={32}
+            width={34}
+            height={34}
             priority
           />
           <span className="text-red-600 relative font-extrabold flex items-center gap-0.5">
@@ -39,13 +39,13 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <ul className="hidden md:flex items-center gap-4 font-medium text-sm text-amber-50">
+        <ul className="hidden md:flex items-center gap-4 font-medium text-[15px] text-amber-50">
           <li>
             <Link
               href="/a-propos"
               className="hover:text-emerald-400 flex items-center transition-colors"
             >
-              <Info className={iconCls} /> À Propos
+              <Info className={iconCls} /> À Propos
             </Link>
           </li>
 
@@ -64,7 +64,7 @@ export default function Navbar() {
                   href="/mes-projets"
                   className="hover:text-purple-400 flex items-center transition-colors"
                 >
-                  <Folder className={iconCls} /> Mes projets
+                  <Folder className={iconCls} /> Mes projets
                 </Link>
               </li>
             </>
@@ -86,13 +86,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           {player ? (
             <>
-              <span className="px-3 py-0.5 rounded-full bg-blue-200/80 text-blue-900 font-semibold shadow-sm border border-blue-300 truncate max-w-[120px] text-xs">
+              <span className="px-3 py-1 rounded-full bg-blue-200/80 text-blue-900 font-semibold shadow-sm border border-blue-300 truncate max-w-[120px] text-xs">
                 {player.pseudo}
               </span>
 
               <Link
                 href="/dashboard"
-                className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-1.5 text-xs font-semibold shadow transition"
+                className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-2 text-xs font-semibold shadow transition"
                 title="Dashboard"
               >
                 Dashboard
@@ -100,19 +100,19 @@ export default function Navbar() {
 
               <button
                 onClick={logout}
-                className="bg-red-600 hover:bg-red-700 text-white rounded-full px-4 py-1.5 text-xs font-semibold shadow transition flex items-center gap-1"
+                className="bg-red-600 hover:bg-red-700 text-white rounded-full px-4 py-2 text-xs font-semibold shadow transition flex items-center gap-1"
                 title="Déconnexion"
               >
-                <LogOut className="w-3.5 h-3.5" />
+                <LogOut className="w-4 h-4" />
                 Déconnexion
               </button>
             </>
           ) : (
             <Link
               href="/login"
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-5 py-1.5 text-xs font-bold shadow transition"
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-5 py-2 text-xs font-bold shadow transition"
             >
-              Se connecter
+              Se connecter
             </Link>
           )}
         </div>
@@ -131,14 +131,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="md:hidden px-4 pb-6 space-y-3 font-medium text-sm bg-[#101426]/95 border-t shadow-lg backdrop-blur animate-in fade-in duration-200">
+        <ul className="md:hidden px-4 pb-6 space-y-3 font-medium text-[15px] bg-[#101426]/95 border-t shadow-lg backdrop-blur animate-in fade-in duration-200">
           <li>
             <Link
               href="/a-propos"
               className="block py-3 hover:text-emerald-400 flex items-center"
               onClick={() => setOpen(false)}
             >
-              <Info className="w-4 h-4 mr-2" /> À Propos
+              <Info className="w-4 h-4 mr-2" /> À Propos
             </Link>
           </li>
           {player && (
@@ -149,7 +149,7 @@ export default function Navbar() {
                   className="block py-3 hover:text-orange-400 flex items-center"
                   onClick={() => setOpen(false)}
                 >
-                  <PlusCircle className="w-4 h-4 mr-2" /> Ajouter un projet
+                  <PlusCircle className="w-4 h-4 mr-2" /> Ajouter un projet
                 </Link>
               </li>
               <li>
@@ -158,7 +158,7 @@ export default function Navbar() {
                   className="block py-3 hover:text-purple-400 flex items-center"
                   onClick={() => setOpen(false)}
                 >
-                  <Folder className="w-4 h-4 mr-2" /> Mes projets
+                  <Folder className="w-4 h-4 mr-2" /> Mes projets
                 </Link>
               </li>
             </>
@@ -203,7 +203,7 @@ export default function Navbar() {
                 className="bg-blue-600 text-white rounded-full px-5 py-2 font-semibold shadow hover:bg-blue-700 text-sm"
                 onClick={() => setOpen(false)}
               >
-                Se connecter
+                Se connecter
               </Link>
             )}
           </li>
