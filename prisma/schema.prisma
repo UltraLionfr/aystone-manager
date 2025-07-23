@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./cobble.db"
+}
+
+model Player {
+  id      String   @id @default(uuid())
+  pseudo  String   @unique
+  projects Project[]
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  player      Player   @relation(fields: [playerId], references: [id])
+  playerId    String
+  coordsX     Int
+  coordsY     Int
+  coordsZ     Int
+  tags        String
+  description String
+  etat        String   @default("En cours")
+  projet      String?
+  monde       String   @default("overworld")
+  createdAt   DateTime @default(now())
+}
