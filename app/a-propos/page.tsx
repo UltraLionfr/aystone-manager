@@ -86,7 +86,7 @@ export default function AProposPage() {
           <p>
             Le code source de ce projet est disponible sur{" "}
             <a
-              href="https://github.com"
+              href="https://github.com/UltraLionfr/aystone-manager"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-orange-400 hover:text-orange-600 transition"
