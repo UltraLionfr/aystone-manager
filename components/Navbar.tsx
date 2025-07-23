@@ -66,34 +66,26 @@ export default function Navbar() {
         </ul>
 
         {/* User section */}
-        <div className="hidden md:flex items-center gap-4">
-          {player ? (
-            <>
-              <span className="px-4 py-1 rounded-full bg-blue-200 text-blue-900 font-semibold shadow-sm border border-blue-300">
-                {player.pseudo}
-              </span>
-              <Link
-                href="/dashboard"
-                className="bg-green-600 hover:bg-green-700 text-white rounded-2xl px-6 py-2 font-bold shadow transition"
-              >
-                Dashboard
-              </Link>
-              <button
-                onClick={logout}
-                className="bg-red-600 hover:bg-red-700 text-white rounded-2xl px-5 py-2 font-semibold shadow transition"
-              >
-                Déconnexion
-              </button>
-            </>
-          ) : (
-            <Link
-              href="/login"
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-6 py-2 font-bold shadow transition"
-            >
-              Se connecter
-            </Link>
-          )}
-        </div>
+        <div className="hidden md:flex items-center gap-3">
+  <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 font-semibold shadow-sm border border-blue-300 truncate max-w-[120px]">
+    {player.pseudo}
+  </span>
+  <Link
+    href="/dashboard"
+    className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-1 text-sm font-semibold shadow"
+    title="Dashboard"
+  >
+    Dashboard
+  </Link>
+  <button
+    onClick={logout}
+    className="bg-red-600 hover:bg-red-700 text-white rounded-full px-4 py-1 text-sm font-semibold shadow"
+    title="Déconnexion"
+  >
+    Déconnexion
+  </button>
+</div>
+
 
         {/* Burger menu mobile */}
         <button
