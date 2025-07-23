@@ -91,7 +91,7 @@ export default function Navbar() {
               </span>
 
               <Link
-                href="/dashboard"
+                href="/ajouter"
                 className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-2 text-xs font-semibold shadow transition"
                 title="Dashboard"
               >
@@ -109,7 +109,7 @@ export default function Navbar() {
             </>
           ) : (
             <Link
-              href="/login"
+              href="/ajouter"
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-5 py-2 text-xs font-bold shadow transition"
             >
               Se connecter
@@ -181,7 +181,7 @@ export default function Navbar() {
                   {player.pseudo}
                 </span>
                 <Link
-                  href="/dashboard"
+                  href="/ajouter"
                   className="bg-green-600 text-white rounded-full px-5 py-2 font-semibold shadow hover:bg-green-700 flex justify-center text-sm"
                   onClick={() => setOpen(false)}
                 >
