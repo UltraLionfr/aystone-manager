@@ -29,64 +29,59 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8 font-semibold text-base text-amber-50">
-          <li>
-            <Link href="/a-propos" className="hover:text-emerald-600 transition-colors flex items-center">
-              <Info className={iconClass} />
-              À Propos
-            </Link>
-          </li>
-          {player && (
-            <>
-              <li>
-                <Link href="/ajouter" className="hover:text-orange-600 transition-colors flex items-center">
-                  <PlusCircle className={iconClass} />
-                  Ajouter un projet
-                </Link>
-              </li>
-              <li>
-                <Link href="/mes-projets" className="hover:text-purple-600 transition-colors flex items-center">
-                  <Folder className={iconClass} />
-                  Mes projets
-                </Link>
-              </li>
-            </>
-          )}
-          <li>
-            <a
-              href="https://maps.aystone.fr/cobble/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors font-semibold flex items-center"
+        {!player ? (
+          <ul className="hidden md:flex items-center gap-8 font-semibold text-base text-amber-50">
+            <li>
+              <Link href="/a-propos" className="hover:text-emerald-600 transition-colors flex items-center">
+                <Info className={iconClass} />
+                À Propos
+              </Link>
+            </li>
+            <li>
+              <Link href="/ajouter" className="hover:text-orange-600 transition-colors flex items-center">
+                <PlusCircle className={iconClass} />
+                Ajouter un projet
+              </Link>
+            </li>
+            <li>
+              <Link href="/mes-projets" className="hover:text-purple-600 transition-colors flex items-center">
+                <Folder className={iconClass} />
+                Mes projets
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://maps.aystone.fr/cobble/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-400 transition-colors font-semibold flex items-center"
+              >
+                <MapPin className={iconClass} />
+                BlueMap
+              </a>
+            </li>
+          </ul>
+        ) : (
+          <div className="hidden md:flex items-center gap-4">
+            <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 font-semibold shadow-sm border border-blue-300 truncate max-w-[120px]">
+              {player.pseudo}
+            </span>
+            <Link
+              href="/dashboard"
+              className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-1 font-semibold shadow"
+              title="Dashboard"
             >
-              <MapPin className={iconClass} />
-              BlueMap
-            </a>
-          </li>
-        </ul>
-
-        {/* User section */}
-        <div className="hidden md:flex items-center gap-3">
-  {player && (
-    <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 font-semibold shadow-sm border border-blue-300 truncate max-w-[120px]">
-      {player.pseudo}
-    </span>
-  )}
-  <Link
-    href="/dashboard"
-    className="bg-green-600 hover:bg-green-700 text-white rounded-full px-4 py-1 text-sm font-semibold shadow"
-    title="Dashboard"
-  >
-    Dashboard
-  </Link>
-  <button
-    onClick={logout}
-    className="bg-red-600 hover:bg-red-700 text-white rounded-full px-4 py-1 text-sm font-semibold shadow"
-    title="Déconnexion"
-  >
-    Déconnexion
-  </button>
-</div>
+              Dashboard
+            </Link>
+            <button
+              onClick={logout}
+              className="bg-red-600 hover:bg-red-700 text-white rounded-full px-4 py-1 font-semibold shadow"
+              title="Déconnexion"
+            >
+              Déconnexion
+            </button>
+          </div>
+        )}
 
         {/* Burger menu mobile */}
         <button
@@ -109,7 +104,7 @@ export default function Navbar() {
               Explorer
             </Link>
           </li>
-          {player && (
+          {!player ? (
             <>
               <li>
                 <Link href="/ajouter" className="block py-2 hover:text-orange-600 flex items-center" onClick={() => setOpen(false)}>
@@ -123,24 +118,25 @@ export default function Navbar() {
                   Mes projets
                 </Link>
               </li>
+              <li>
+                <a
+                  href="https://maps.aystone.fr/cobble/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-2 hover:text-blue-400 font-semibold flex items-center"
+                  onClick={() => setOpen(false)}
+                >
+                  <MapPin className="w-4 h-4 mr-1" />
+                  BlueMap
+                </a>
+              </li>
             </>
-          )}
-          <li>
-            <a
-              href="https://maps.aystone.fr/cobble/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block py-2 hover:text-blue-400 font-semibold flex items-center"
-              onClick={() => setOpen(false)}
-            >
-              <MapPin className="w-4 h-4 mr-1" />
-              BlueMap
-            </a>
-          </li>
-          <li className="pt-2 border-t flex items-center gap-2">
-            {player ? (
-              <>
-                <span className="px-3 py-1 rounded-xl bg-emerald-50 text-emerald-700 font-bold border">{player.pseudo}</span>
+          ) : (
+            <>
+              <li>
+                <span className="px-3 py-1 rounded-xl bg-emerald-50 text-emerald-700 font-bold border block truncate max-w-[120px]">{player.pseudo}</span>
+              </li>
+              <li>
                 <Link
                   href="/dashboard"
                   className="bg-green-600 text-white rounded-xl px-5 py-1.5 font-bold shadow hover:bg-green-700 flex items-center gap-1"
@@ -148,6 +144,8 @@ export default function Navbar() {
                 >
                   Dashboard
                 </Link>
+              </li>
+              <li>
                 <button
                   onClick={() => {
                     setOpen(false);
@@ -158,17 +156,9 @@ export default function Navbar() {
                   <LogOut className="w-4 h-4" />
                   Déconnexion
                 </button>
-              </>
-            ) : (
-              <Link
-                href="/login"
-                className="bg-blue-600 text-white rounded-xl px-5 py-1.5 font-bold shadow hover:bg-blue-700"
-                onClick={() => setOpen(false)}
-              >
-                Se connecter
-              </Link>
-            )}
-          </li>
+              </li>
+            </>
+          )}
         </ul>
       )}
     </header>
