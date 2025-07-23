@@ -8,6 +8,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "AyStone Instance Cobble",
   description: "Ce petit site est une application de gestion de projets Minecraft, pensée spécialement pour la communauté du serveur Aystone.",
+  icons: {
+    icon: "/aystone.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
