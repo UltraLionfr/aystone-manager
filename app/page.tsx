@@ -3,7 +3,7 @@ import CopyCoords from "@/components/CopyCoords";
 import FakeAd from "@/components/FakeAd";
 import { usePlayer } from "@/context/PlayerContext";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -43,9 +43,22 @@ export default function TablePage() {
   useEffect(() => {
     setLoading(true);
     fetch("/api/all-projects")
-      .then((r) => r.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Erreur réseau");
+        return res.json();
+      })
       .then((data) => {
-        setProjects(data);
+        if (Array.isArray(data)) {
+          setProjects(data);
+        } else {
+          console.error("Réponse API invalide:", data);
+          setProjects([]);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erreur fetch projets:", err);
+        setProjects([]);
         setLoading(false);
       });
   }, []);
@@ -81,7 +94,10 @@ export default function TablePage() {
         {/* PUB GAUCHE */}
         <aside className="hidden lg:block fixed left-6 top-32 z-10">
           <div className="sticky top-24">
-            <FakeAd title="vendezvotreaypierre.fr" img="https://vendezvotreaypierre.fr/raceforgaza.png" />
+            <FakeAd
+              title="vendezvotreaypierre.fr"
+              img="https://vendezvotreaypierre.fr/raceforgaza.png"
+            />
           </div>
         </aside>
 
@@ -100,7 +116,6 @@ export default function TablePage() {
               height={150}
               priority
               className="object-contain"
-              
             />
           </div>
 
@@ -331,7 +346,10 @@ export default function TablePage() {
         {/* PUB DROITE */}
         <aside className="hidden lg:block fixed right-6 top-32 z-1">
           <div className="sticky top-24">
-            <FakeAd title="vendezvotreaypierre.fr" img="https://vendezvotreaypierre.fr/raceforgaza.png" />
+            <FakeAd
+              title="vendezvotreaypierre.fr"
+              img="https://vendezvotreaypierre.fr/raceforgaza.png"
+            />
           </div>
         </aside>
       </div>
