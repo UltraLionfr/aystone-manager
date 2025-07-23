@@ -33,7 +33,7 @@ export default function Navbar() {
             Aystone
             <RedstoneParticles density={15} maxRadius={2} />
           </span>
-          <span className="hidden sm:inline text-gray-400 ml-1 text-xs font-medium">
+          <span className="hidden sm:inline text-gray-400 ml-1 text-xl font-medium">
             Instance Cobble
           </span>
         </Link>
