@@ -2,10 +2,12 @@ import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PATCH(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+interface Params {
+  params: { id: string };
+}
+
+// PATCH (éditer un projet)
+export async function PATCH(req: NextRequest, { params }: Params) {
   const cookiesList = cookies();
   const playerId = cookiesList.get("minecraft_player_id")?.value;
   if (!playerId) return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
@@ -38,10 +40,8 @@ export async function PATCH(
   }
 }
 
-export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+// DELETE (supprimer un projet)
+export async function DELETE(req: NextRequest, { params }: Params) {
   const cookiesList = cookies();
   const playerId = cookiesList.get("minecraft_player_id")?.value;
   if (!playerId) return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
