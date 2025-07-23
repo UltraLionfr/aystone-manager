@@ -88,7 +88,7 @@ export default function Navbar() {
             </>
           ) : (
             <Link
-              href="/login"
+              href="/ajouter"
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-6 py-2 font-bold shadow transition"
             >
               Se connecter
