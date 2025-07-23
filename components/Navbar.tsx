@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <header className="w-full sticky top-0 z-50 bg-[#101426]/95 backdrop-blur-md shadow-md">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-2">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 py-4">
         {/* Logo & Brand */}
         <Link
           href="/"
