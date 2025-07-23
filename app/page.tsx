@@ -280,17 +280,19 @@ export default function TablePage() {
                       >
                         <td className="p-4 font-semibold text-gray-200">{p.player.pseudo}</td>
                         <td className="p-4">
-                          <span
-                            className={
-                              "px-4 py-1 rounded-full text-xs font-bold transition bg-opacity-80 " +
-                              (p.etat === "Terminé"
-                                ? "bg-emerald-300 text-emerald-900"
-                                : "bg-yellow-200 text-yellow-900")
-                            }
-                          >
-                            {p.etat}
-                          </span>
-                        </td>
+                        <span
+                          className={
+                            "inline-block whitespace-nowrap px-4 py-1 rounded-full text-xs font-bold transition bg-opacity-80 " +
+                            (p.etat.trim().toLowerCase() === "terminé"
+                              ? "bg-emerald-300 text-emerald-900"
+                              : p.etat.trim().toLowerCase() === "en cours"
+                              ? "bg-yellow-200 text-yellow-900"
+                              : "bg-gray-400 text-gray-900")
+                          }
+                        >
+                          {p.etat}
+                        </span>
+                      </td>
                         {/* Monde stylé */}
                         <td className="p-4">
                           {p.monde === "overworld" && (
