@@ -34,12 +34,12 @@ export default async function UserProfilePage({ params }: Props) {
   return (
     <section className="p-4">
        <Banner />
-      <h1 className="text-2xl font-bold text-white text-center">
+      <h1 className="text-2xl font-bold text-amber-50 text-center">
         Projets de <span className="text-yellow-300">{username}</span>
       </h1>
 
       {projects.length === 0 ? (
-        <p className="mt-4 text-white/60">Aucun projet enregistré.</p>
+        <p className="mt-4 text-amber-50/60">Aucun projet enregistré.</p>
       ) : (
         <ProjectsTable data={projects} hidePlayerFilter />
       )}

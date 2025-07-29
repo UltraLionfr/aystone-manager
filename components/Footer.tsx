@@ -10,7 +10,7 @@ export default function Footer() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full bg-[#18181b] py-6 text-center text-sm text-white/80"
+      className="w-full bg-[#18181b] py-6 text-center text-sm text-amber-50/80"
     >
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4">
         <p>

@@ -38,7 +38,7 @@ export default function EditProjectForm({ project }: Props) {
     >
       {/* Titre du projet */}
       <div className="relative">
-        <Layers3 size={18} className="absolute left-3 top-3 text-white/40" />
+        <Layers3 size={18} className="absolute left-3 top-3 text-amber-50/40" />
         <input
           name="projet"
           defaultValue={project.projet}
@@ -52,7 +52,7 @@ export default function EditProjectForm({ project }: Props) {
       <div className="grid grid-cols-3 gap-4">
         {["X", "Y", "Z"].map((axis, idx) => (
           <div key={axis} className="relative">
-            <MapPin size={16} className="absolute left-3 top-3 text-white/40" />
+            <MapPin size={16} className="absolute left-3 top-3 text-amber-50/40" />
             <input
               name={axis.toLowerCase()}
               defaultValue={coordsParts[idx] ?? ""}
@@ -88,7 +88,7 @@ export default function EditProjectForm({ project }: Props) {
 
       {/* Tags */}
       <div className="space-y-2">
-        <label className="flex items-center gap-2 text-sm text-white/70">
+        <label className="flex items-center gap-2 text-sm text-amber-50/70">
           <Tags size={16} /> Tags (max 5)
         </label>
         <div className="flex flex-wrap gap-2">

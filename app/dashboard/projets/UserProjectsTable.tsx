@@ -30,7 +30,7 @@ export default function UserProjectsTable({ projects }: { projects: SafeProject[
         transition={{ duration: 0.4 }}
         className="flex items-center justify-between mb-6"
       >
-        <h1 className="text-2xl font-bold text-white">Mes projets</h1>
+        <h1 className="text-2xl font-bold text-amber-50">Mes projets</h1>
         <Link
           href="/dashboard/ajouter"
           className="inline-flex items-center gap-2 rounded bg-green-600 px-3 py-1.5 text-sm font-medium hover:bg-green-700"
@@ -40,7 +40,7 @@ export default function UserProjectsTable({ projects }: { projects: SafeProject[
       </motion.div>
 
       {projects.length === 0 ? (
-        <p className="mt-6 text-center text-white/60">Vous n’avez encore créé aucun projet.</p>
+        <p className="mt-6 text-center text-amber-50/60">Vous n’avez encore créé aucun projet.</p>
       ) : (
         <motion.div
           initial={{ opacity: 0, y: 20 }}

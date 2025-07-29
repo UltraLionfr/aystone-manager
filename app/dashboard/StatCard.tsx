@@ -21,8 +21,8 @@ export default function StatCard({ title, value, icon }: Props) {
           {icon}
         </div>
       )}
-      <h3 className="text-sm font-medium text-white/70">{title}</h3>
-      <p className="mt-2 text-3xl font-semibold text-white">{value}</p>
+      <h3 className="text-sm font-medium text-amber-50/70">{title}</h3>
+      <p className="mt-2 text-3xl font-semibold text-amber-50">{value}</p>
     </motion.div>
   );
 }

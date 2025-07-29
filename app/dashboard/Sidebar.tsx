@@ -42,14 +42,14 @@ export default function Sidebar() {
                   flex-shrink-0 transition
                   ${active
                     ? "text-red-500"
-                    : "text-white/60 group-hover:text-white"}
+                    : "text-amber-50/60 group-hover:text-amber-50"}
                 `}
               />
               <span
                 className={`transition ${
                   active
                     ? "text-red-500"
-                    : "text-white/60 group-hover:text-white"
+                    : "text-amber-50/60 group-hover:text-amber-50"
                 }`}
               >
                 {name}

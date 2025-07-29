@@ -52,7 +52,7 @@ export default function AddProjectForm() {
           name="projet"
           placeholder="Nom du projet"
           required
-          className="w-full rounded-lg bg-gray-700 py-2 pl-10 pr-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full rounded-lg bg-gray-700 py-2 pl-10 pr-3 text-amber-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
@@ -64,7 +64,7 @@ export default function AddProjectForm() {
             name="joueur"
             placeholder="Pseudo Minecraft"
             required
-            className="w-full rounded-lg bg-gray-700 py-2 pl-10 pr-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full rounded-lg bg-gray-700 py-2 pl-10 pr-3 text-amber-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
       )}
@@ -85,7 +85,7 @@ export default function AddProjectForm() {
               onChange={(e) => {
                 if (isValidCoord(e.target.value)) setValue(e.target.value);
               }}
-              className="w-full rounded-lg bg-gray-700 py-2 pl-9 pr-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-lg bg-gray-700 py-2 pl-9 pr-3 text-amber-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
         ))}
@@ -103,7 +103,7 @@ export default function AddProjectForm() {
               key={t}
               type="button"
               onClick={() => del(t)}
-              className={`rounded-full px-3 py-1 text-xs ${getTagClass(t)} text-white flex items-center gap-1 hover:opacity-80`}
+              className={`rounded-full px-3 py-1 text-xs ${getTagClass(t)} text-amber-50 flex items-center gap-1 hover:opacity-80`}
             >
               {t} <X size={12} />
             </button>
@@ -116,7 +116,7 @@ export default function AddProjectForm() {
               addTag(e.target.value);
               e.target.value = "";
             }}
-            className="w-full sm:w-1/2 rounded-lg bg-gray-700 py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full sm:w-1/2 rounded-lg bg-gray-700 py-2 px-3 text-amber-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             defaultValue=""
           >
             <option value="">Choisir un tag pré-défini</option>
@@ -133,7 +133,7 @@ export default function AddProjectForm() {
                 e.key === "Enter" && (e.preventDefault(), addTag(tagInput), setInput(""))
               }
               placeholder="Ajouter un tag personnalisé"
-              className="w-full rounded-lg bg-gray-700 py-2 pl-3 pr-12 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-lg bg-gray-700 py-2 pl-3 pr-12 text-amber-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <button
               type="button"
@@ -143,7 +143,7 @@ export default function AddProjectForm() {
               }}
               className="absolute right-1 top-1 rounded-lg bg-indigo-500 hover:bg-indigo-600 p-1"
             >
-              <Plus size={16} className="text-white" />
+              <Plus size={16} className="text-amber-50" />
             </button>
           </div>
         </div>
@@ -154,17 +154,17 @@ export default function AddProjectForm() {
         name="description"
         rows={4}
         placeholder="Description du projet"
-        className="w-full rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 resize-y focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full rounded-lg bg-gray-700 p-3 text-amber-50 placeholder-gray-400 resize-y focus:outline-none focus:ring-2 focus:ring-indigo-500"
       />
 
       {/* état + monde */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <select name="etat" className="input-style bg-gray-700 text-white">
+        <select name="etat" className="input-style bg-gray-700 text-amber-50">
           <option>En cours</option>
           <option>Terminé</option>
           <option>Pause</option>
         </select>
-        <select name="monde" className="input-style bg-gray-700 text-white">
+        <select name="monde" className="input-style bg-gray-700 text-amber-50">
           <option>Overworld</option>
           <option>Nether</option>
           <option>End</option>
@@ -178,7 +178,7 @@ export default function AddProjectForm() {
       {/* submit */}
       <button
         type="submit"
-        className="cursor-pointer w-full rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 py-3 text-white font-semibold shadow-md hover:shadow-lg transition duration-300"
+        className="cursor-pointer w-full rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 py-3 text-amber-50 font-semibold shadow-md hover:shadow-lg transition duration-300"
         onClick={(e) => {
           const form = (e.target as HTMLButtonElement).form!;
           const coordsField = form.coords as HTMLInputElement;

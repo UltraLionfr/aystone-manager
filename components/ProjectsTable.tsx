@@ -79,7 +79,7 @@ function resolveWorldId(monde: Project["monde"]): string {
 
 
   if (!data.length) {
-    return <p className="mt-8 text-center text-white/60">Aucun projet enregistré pour le moment.</p>;
+    return <p className="mt-8 text-center text-amber-50/60">Aucun projet enregistré pour le moment.</p>;
   }
 
   return (
@@ -91,7 +91,7 @@ function resolveWorldId(monde: Project["monde"]): string {
             placeholder="Rechercher un projet..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm text-amber-50 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
           {!hidePlayerFilter && (
             <select
@@ -128,7 +128,7 @@ function resolveWorldId(monde: Project["monde"]): string {
         </div>
 
         <div className="overflow-auto rounded-xl border border-white/10">
-          <table className="min-w-[1100px] w-full text-sm text-white">
+          <table className="min-w-[1100px] w-full text-sm text-amber-50">
             <thead className="bg-slate-800 text-amber-50">
               <tr>
                 {headers.map(({ label, icon: Icon }) => (
@@ -156,7 +156,7 @@ function resolveWorldId(monde: Project["monde"]): string {
                         onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
                       />
                       {hidePlayerFilter ? (
-                        <span className="text-white/80">{p.joueur}</span>
+                        <span className="text-amber-50/80">{p.joueur}</span>
                       ) : (
                         <Link
                           href={`/user/${p.joueur}`}
@@ -171,7 +171,7 @@ function resolveWorldId(monde: Project["monde"]): string {
                   <Td><MondeBadge v={p.monde} /></Td>
                   <Td className="font-medium">{p.projet}</Td>
                   <Td>
-                    <div className="max-h-[100px] overflow-auto whitespace-pre-line text-white/80 break-words">
+                    <div className="max-h-[100px] overflow-auto whitespace-pre-line text-amber-50/80 break-words">
                       {p.description}
                     </div>
                   </Td>

@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className="bg-[#0e0e10] text-white antialiased">
+      <body className="bg-[#0e0e10] text-amber-50 antialiased">
         <AdsSideBanners />
         <Providers>
           <Navbar />

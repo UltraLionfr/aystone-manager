@@ -31,7 +31,7 @@ export default function PopupAd() {
           aria-label="Fermer la pub"
           className="absolute right-2 top-2 z-10 rounded-full bg-black/40 p-1 hover:bg-black/60"
         >
-          <X className="h-4 w-4 text-white" />
+          <X className="h-4 w-4 text-amber-50" />
         </button>
 
         {/* image de la pub */}

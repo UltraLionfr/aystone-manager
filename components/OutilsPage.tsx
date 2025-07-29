@@ -44,13 +44,13 @@ const outils = [
 
 export default function OutilsPage() {
   return (
-    <div className="min-h-screen bg-[#0e0e10] text-white px-4 sm:px-8 py-12">
+    <div className="min-h-screen bg-[#0e0e10] text-amber-50 px-4 sm:px-8 py-12">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <h1 className="text-center text-4xl sm:text-5xl font-extrabold mb-14 flex items-center justify-center gap-3 text-white">
+        <h1 className="text-center text-4xl sm:text-5xl font-extrabold mb-14 flex items-center justify-center gap-3 text-amber-50">
           <Wrench className="text-red-500" size={36} />
           Outils & Liens Utiles
         </h1>
@@ -75,7 +75,7 @@ export default function OutilsPage() {
                 <ExternalLink size={14} />
               </span>
             </div>
-            <p className="text-sm text-white/70">{outil.description}</p>
+            <p className="text-sm text-amber-50/70">{outil.description}</p>
           </motion.a>
         ))}
       </div>

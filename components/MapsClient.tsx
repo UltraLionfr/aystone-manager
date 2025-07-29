@@ -19,7 +19,7 @@ export default function MapsClient() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mt-2 text-white/80"
+        className="mt-2 text-amber-50/80"
       >
         Explore la carte interactive ci-dessous ou ouvre-la dans un nouvel onglet.
       </motion.p>
