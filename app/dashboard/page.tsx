@@ -33,6 +33,9 @@ export default async function DashboardHome() {
           <p className="text-blue-700">
             Pensez à compléter votre profil avec votre pseudo Minecraft pour pouvoir créer et associer vos projets à votre compte.
           </p>
+            <p className="text-blue-700">
+              Vous pouvez mettre qu&apos;une seul fois votre pseudo Minecraft et pas le changer par la suite.
+            </p>
         </div>
       </div>
 
