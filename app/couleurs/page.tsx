@@ -1,13 +1,16 @@
+import { Palette } from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
   title: "Charte des couleurs Minecraft",
 };
+
 export default function CouleursPage() {
   return (
     <div className="min-h-screen bg-[#0e0e10] text-white px-4 py-12 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-6 text-center">
-        🎨 Charte des couleurs Minecraft
+      <h1 className="text-4xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+        <Palette className="w-8 h-8 text-white" />
+        Charte des couleurs Minecraft
       </h1>
       <div className="w-full max-w-4xl">
         <Image
