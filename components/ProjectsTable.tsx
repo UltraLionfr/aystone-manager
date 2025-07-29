@@ -167,7 +167,7 @@ export default function ProjectTable({
                         <span className="font-mono tabular-nums">{p.coords}</span>
                         {p.coords && (
                           <a
-                            href={`https://maps.aystone.fr/cobble/#world:${p.coords.replace(/ /g, ":")}:1500:0:0:0:0:perspective`}
+                            href={`https://maps.aystone.fr/cobble/#world:${p.coords.replace(/ /g, ":")}:1500:0:0:0:0:free`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block rounded bg-blue-600 px-2 py-0.5 text-[11px] text-white hover:bg-blue-700"

@@ -1,16 +1,13 @@
-import { auth } from "@/auth";
 import Banner from "@/components/Banner";
 import ProjectsTable, { Project } from "@/components/ProjectsTable";
 import { prisma } from "@/lib/prisma";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { username: string };
 };
 
 export default async function UserProfilePage({ params }: Props) {
-  const session = await auth();
-  if (!session) return redirect("/");
 
   const username = params.username;
   const user = await prisma.user.findUnique({
