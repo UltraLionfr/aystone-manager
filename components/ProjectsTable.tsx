@@ -64,6 +64,20 @@ export default function ProjectTable({
     { label: "Tags", icon: Tag },
   ];
 
+function resolveWorldId(monde: Project["monde"]): string {
+  switch (monde) {
+    case "Overworld":
+      return "world";
+    case "Nether":
+      return "world_nether";
+    case "End":
+      return "world_the_end";
+    default:
+      return "world"; // fallback
+  }
+}
+
+
   if (!data.length) {
     return <p className="mt-8 text-center text-white/60">Aucun projet enregistré pour le moment.</p>;
   }
@@ -167,7 +181,7 @@ export default function ProjectTable({
                         <span className="font-mono tabular-nums">{p.coords}</span>
                         {p.coords && (
                           <a
-                            href={`https://maps.aystone.fr/cobble/#world:${p.coords.replace(/ /g, ":")}:1500:0:0:0:0:free`}
+                            href={`https://maps.aystone.fr/cobble/#${resolveWorldId(p.monde)}:${p.coords.replace(/ /g, ":")}:1500:0:0:0:0:free`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex justify-center items-center w-[70px] text-[11px] font-medium rounded-full px-2 py-0.5 border border-blue-500 text-blue-400 hover:bg-blue-500/10 transition"
