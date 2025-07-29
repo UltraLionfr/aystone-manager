@@ -12,7 +12,7 @@ const outils = [
   },
   {
     label: "DynMap",
-    href: "/cobble",
+    href: "/maps",
     icon: Map,
     description: "Carte dynamique de l'instance Cobble.",
   },
