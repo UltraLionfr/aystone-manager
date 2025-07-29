@@ -170,7 +170,7 @@ export default function ProjectTable({
                             href={`https://maps.aystone.fr/cobble/#world:${p.coords.replace(/ /g, ":")}:1500:0:0:0:0:free`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5 border border-blue-500 text-blue-400 hover:bg-blue-500/10 transition"
+                            className="inline-flex justify-center items-center w-[70px] text-[11px] font-medium rounded-full px-2 py-0.5 border border-blue-500 text-blue-400 hover:bg-blue-500/10 transition"
                           >
                             DynMap
                           </a>
