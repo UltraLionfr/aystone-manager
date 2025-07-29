@@ -6,8 +6,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aystone - Instance Cobble",
-  description: "Site communautaire Aystone",
+  title: "AyStone Instance Cobble",
+  description: "Ce petit site est une application de gestion de projets Minecraft, pensée spécialement pour la communauté du serveur Aystone.",
+  icons: {
+    icon: "/aystone.png",
+  },
 };
 
 export default function RootLayout({
