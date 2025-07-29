@@ -74,16 +74,29 @@ export async function updateMinecraftName(form: FormData) {
   const mcName = (form.get("mcName") as string).trim();
   if (!/^[A-Za-z0-9_]{3,16}$/.test(mcName)) throw new Error("invalid");
 
-  await prisma.user.upsert({
+  const user = await prisma.user.findUnique({
     where: { email: session.user!.email! },
-    update: { mcName },
-    create: {
-      email: session.user!.email!,
-      name: session.user!.name,
-      image: session.user!.image,
-      mcName,
-    },
   });
+
+  if (!user) {
+    await prisma.user.create({
+      data: {
+        email: session.user!.email!,
+        name: session.user!.name,
+        image: session.user!.image,
+        mcName,
+      },
+    });
+  } else {
+    if (user.mcName) {
+      throw new Error("Le pseudo Minecraft ne peut pas être modifié après avoir été défini.");
+    }
+
+    await prisma.user.update({
+      where: { email: session.user!.email! },
+      data: { mcName },
+    });
+  }
 
   revalidatePath("/dashboard");
   revalidatePath("/");

@@ -60,13 +60,15 @@ export default async function ProfilPage() {
               placeholder="Pseudo MC"
               required
               pattern="[A-Za-z0-9_]{3,16}"
-              className="input pl-12"
+              disabled={Boolean(user?.mcName)}
+              className="input pl-12 disabled:opacity-60"
             />
           </div>
 
           <button
             type="submit"
-            className="rounded bg-indigo-600 px-4 py-2 text-sm font-medium hover:bg-indigo-700"
+            disabled={Boolean(user?.mcName)}
+            className="rounded bg-indigo-600 px-4 py-2 text-sm font-medium hover:bg-indigo-700 disabled:opacity-50"
           >
             Enregistrer
           </button>
